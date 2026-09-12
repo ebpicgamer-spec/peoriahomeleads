@@ -8,39 +8,84 @@
     <meta name="keywords" content="hvac repair peoria az, ac repair peoria, air conditioning installation peoria, hvac maintenance west valley, emergency ac repair peoria, cooling system peoria az">
     <link rel="canonical" href="https://peoriahomeleads.com/hvac.html">
     <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --accent-dark: #d35400;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #e0e0e0;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; color: #333; line-height: 1.6; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text); line-height: 1.6; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: #1a1a2e; color: white; padding: 20px 0; }
+
+        header { background: var(--primary); color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; }
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav a { color: white; text-decoration: none; font-weight: 500; }
-        .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 80px 0; text-align: center; }
-        .hero h1 { font-size: 48px; margin-bottom: 20px; }
-        .hero p { font-size: 20px; margin-bottom: 40px; opacity: 0.9; }
-        .cta-button { background: #e94560; color: white; padding: 15px 40px; font-size: 18px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .cta-button:hover { background: #d63a55; }
-        .content-section { padding: 60px 0; background: #f5f5f5; }
-        .content-section h2 { text-align: center; font-size: 36px; margin-bottom: 40px; }
-        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .content-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .content-card h3 { font-size: 24px; margin-bottom: 15px; color: #1a1a2e; }
-        .content-card p { font-size: 16px; color: #666; }
-        .lead-form-section { padding: 60px 0; background: white; }
-        .lead-form-section h2 { text-align: center; font-size: 36px; margin-bottom: 20px; }
-        .lead-form-section p { text-align: center; font-size: 18px; color: #666; margin-bottom: 40px; }
-        .lead-form { max-width: 600px; margin: 0 auto; background: #f9f9f9; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .logo { font-size: 22px; font-weight: bold; color: white; }
+        .logo span { color: var(--accent); }
+        nav ul { list-style: none; display: flex; gap: 25px; }
+        nav a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558618666-88495bd3f8b7?w=1600&q=80') center/cover no-repeat;
+            color: white; padding: 100px 0; text-align: center;
+        }
+        .hero h1 { font-size: 52px; margin-bottom: 20px; font-weight: 800; }
+        .hero p { font-size: 22px; margin-bottom: 40px; opacity: 0.95; }
+        .cta-button {
+            background: var(--accent); color: white; padding: 16px 45px;
+            font-size: 18px; border: none; border-radius: 8px; cursor: pointer;
+            font-weight: bold; transition: background 0.3s;
+        }
+        .cta-button:hover { background: var(--accent-dark); }
+
+        .content-section { padding: 80px 0; background: var(--light); }
+        .content-section h2 { text-align: center; font-size: 38px; margin-bottom: 50px; color: var(--primary); }
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .content-card {
+            background: white; padding: 0; border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08); overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .content-card:hover { transform: translateY(-5px); }
+        .content-card img { width: 100%; height: 200px; object-fit: cover; }
+        .content-card-content { padding: 25px; }
+        .content-card h3 { font-size: 22px; margin-bottom: 12px; color: var(--primary); }
+        .content-card p { font-size: 15px; color: var(--text-light); }
+
+        .lead-form-section { padding: 80px 0; background: white; }
+        .lead-form-section h2 { text-align: center; font-size: 38px; margin-bottom: 20px; color: var(--primary); }
+        .lead-form-section p { text-align: center; font-size: 18px; color: var(--text-light); margin-bottom: 40px; }
+        .lead-form {
+            max-width: 600px; margin: 0 auto; background: var(--light);
+            padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
-        .form-group input:focus, .form-group select:focus { outline: none; border-color: #e94560; }
-        .submit-btn { background: #e94560; color: white; padding: 15px; width: 100%; font-size: 18px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .submit-btn:hover { background: #d63a55; }
-        .footer { background: #1a1a2e; color: white; padding: 40px 0; text-align: center; }
-        .footer p { opacity: 0.8; }
-        .trust-badges { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
-        .trust-badge { background: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; color: #333; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px; border: 1px solid var(--border);
+            border-radius: 8px; font-size: 16px; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+        .submit-btn {
+            background: var(--accent); color: white; padding: 16px; width: 100%;
+            font-size: 18px; border: none; border-radius: 8px; cursor: pointer;
+            font-weight: bold; transition: background 0.3s;
+        }
+        .submit-btn:hover { background: var(--accent-dark); }
+
+        .footer { background: var(--primary); color: white; padding: 50px 0; text-align: center; }
+        .footer p { opacity: 0.8; margin-bottom: 20px; }
+        .trust-badges { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .trust-badge {
+            background: rgba(255,255,255,0.1); padding: 12px 24px;
+            border-radius: 8px; font-size: 14px; color: white;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
             .hero p { font-size: 16px; }
@@ -53,7 +98,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Peoria Home Leads</div>
+                <div class="logo">Peoria <span>Home Leads</span></div>
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -80,20 +125,32 @@
             <h2>Why Choose Our Local HVAC Contractors?</h2>
             <div class="content-grid">
                 <div class="content-card">
-                    <h3>❄️ AC Repair & Installation</h3>
-                    <p>Our local HVAC contractors specialize in air conditioning repair, installation, and maintenance. Keep your home cool and comfortable during Arizona's extreme heat.</p>
+                    <img src="https://images.unsplash.com/photo-1558618666-88495bd3f8b7?w=800&q=80" alt="AC repair in Peoria AZ">
+                    <div class="content-card-content">
+                        <h3>AC Repair & Installation</h3>
+                        <p>Our local HVAC contractors specialize in air conditioning repair, installation, and maintenance. Keep your home cool and comfortable during Arizona's extreme heat.</p>
+                    </div>
                 </div>
                 <div class="content-card">
-                    <h3>🌡️ Extreme Heat Specialists</h3>
-                    <p>Peoria's summer temperatures can exceed 110°F. Our HVAC professionals understand the unique challenges of cooling homes in the West Valley and provide reliable solutions.</p>
+                    <img src="https://images.unsplash.com/photo-1600585392788-802a5877c71f?w=800&q=80" alt="Extreme heat specialist in Peoria">
+                    <div class="content-card-content">
+                        <h3>Extreme Heat Specialists</h3>
+                        <p>Peoria's summer temperatures can exceed 110°F. Our HVAC professionals understand the unique challenges of cooling homes in the West Valley and provide reliable solutions.</p>
+                    </div>
                 </div>
                 <div class="content-card">
-                    <h3>💰 Competitive Pricing</h3>
-                    <p>We connect you with multiple local HVAC contractors, so you can compare quotes and get the best value for your AC repair or installation project.</p>
+                    <img src="https://images.unsplash.com/photo-1503594287427-51c32b62d5c9?w=800&q=80" alt="Competitive HVAC pricing">
+                    <div class="content-card-content">
+                        <h3>Competitive Pricing</h3>
+                        <p>We connect you with multiple local HVAC contractors, so you can compare quotes and get the best value for your AC repair or installation project.</p>
+                    </div>
                 </div>
                 <div class="content-card">
-                    <h3>⚡ Fast Response</h3>
-                    <p>Emergency AC repair? Our local contractors respond quickly to restore your cooling system and keep your home comfortable during heat waves.</p>
+                    <img src="https://images.unsplash.com/photo-1621276290976-d26149581811?w=800&q=80" alt="Fast emergency HVAC response">
+                    <div class="content-card-content">
+                        <h3>Fast Response</h3>
+                        <p>Emergency AC repair? Our local contractors respond quickly to restore your cooling system and keep your home comfortable during heat waves.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,7 +222,6 @@
             const zip = document.getElementById('zip').value;
             const hvacService = document.getElementById('hvac-service').value;
             const hvacIssue = document.getElementById('hvac-issue').value;
-            const timestamp = new Date().toISOString();
 
             const formData = new FormData();
             formData.append('name', name);

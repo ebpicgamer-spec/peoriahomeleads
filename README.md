@@ -1,6 +1,6 @@
 # Peoria Home Leads Website
 
-A lead generation website for home services in Peoria, AZ.
+A professional lead generation website for home services in Peoria, AZ.
 
 ## Pages
 
@@ -9,6 +9,16 @@ A lead generation website for home services in Peoria, AZ.
 - `hvac.html` - HVAC-specific landing page
 - `general-contracting.html` - General contractor landing page
 - `leads.html` - Buyer-facing lead sales page
+
+## Design
+
+The website features:
+- Professional imagery from Unsplash (free stock photos)
+- Modern, clean design with a dark blue and orange color scheme
+- Mobile-responsive layout
+- Trust signals (local expertise, fast response, secure & private)
+- Sticky header navigation
+- Smooth scroll animations
 
 ## Deployment to GitHub Pages
 
@@ -49,6 +59,7 @@ The website includes:
 - Canonical URLs
 - Mobile-responsive design
 - Fast loading (no external dependencies)
+- Professional imagery for visual appeal
 
 ## Next Steps
 
